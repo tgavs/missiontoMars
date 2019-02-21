@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MarsData</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="import" href="templates/marsFacts.html">
+
+
+</head>
+
+<body>
+  <div clas="container">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>     
+    
+  <div class="container">
+
+    <!-- Latest News-->
+    <div class="row">
+      <div class="col-sm-5">
+        <h2>Latest Mars News</h2>
+
+        <p>{{mars.latestNews[0]}} </p>
+        <p>{{mars.latestNews[1]}} <br>
+        <br></p>      
+      </div>
+    </div>
+  </div>
+  
+  <!-- Mars Feat Image and Weather section-->
+
+  <div class="container">
+
+    <!-- Mars Data-->
+    <div class="row">
+      <div class="col-sm-5">
+
+        <img class="img-responsive" width="550px" height="700px" src="{{mars.featImage}}" style="position:relative;top:20px">
+
+       
+      </div>
+
+      <!-- Mars Weather Information-->
+
+
+      <div class="col-sm-7" style="position:relative;top:-20px">
+
+        <h2>Mars Weather</h2>
+      
+        <p>{{mars.marsWeather}}</p>
+
+        <!-- Mars Facts-->  
+
+        <h2>Mars Facts</h2>
+
+        <!--<p>{{mars.marsFacts}}</p>-->
+
+        <table class="table table-striped">
+        
+          {% for key, value in mars.marsFacts.items() %}
+          <tr>
+            <th> {{ key }} </th>
+            <td> {{ value.value }} </td>
+          </tr>
+          {% endfor %}
+        
+        </table>
+     
+        
+
+         
+      </div>
+
+    </div>
+
+  </div>
+
+    <!-- Mars Feat Image and Weather section-->
+
+    <!-- Mars Data-->
+  <div class="container">
+    <h2> Mars Hemisphers <br> <br> </h2>
+    <div class="row">
+      <div class="col-sm-6">    
+        
+        <img class="img-responsive" width="200px" height="200px" src="{{mars.marsHemisphers[0]['img_url']}}" style="position:relative;top:-30px"><br>
+        <img class="img-responsive" width="200px" height="200px" src="{{mars.marsHemisphers[1]['img_url']}}" style="position:relative;top:-30px"><br>
+   
+      </div>
+
+      <div class="col-sm-6">
+        <img class="img-responsive" width="200px" height="200px" src="{{mars.marsHemisphers[2]['img_url']}}"style="position:relative;top:-15px"><br>
+        <img class="img-responsive" width="200px" height="200px" src="{{mars.marsHemisphers[2]['img_url']}}"style="position:relative;top:-15px"><br>
+
+      </div>
+
+    
+          
+    </div>
+  
+  </div>
+
+  </div>
+  
+</body>
+</html>
+
+
